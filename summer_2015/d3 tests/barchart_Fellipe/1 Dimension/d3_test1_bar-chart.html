@@ -1,0 +1,73 @@
+<html>
+  
+  <!-- >>>>> HEAD <<<<< -->
+  <head>
+  	<link rel="stylesheet" type="text/css" href="d3_test1.css"> 
+  	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <title>
+      Let's make a bar chart (Parts 1-2)
+    </title>
+  </head>
+  <!-- >>>>> HEAD <<<<< -->
+  
+  <!-- >>>>> BODY <<<<< -->
+  <body>
+  	
+    <h1> Manual chart </h1> 
+  	<div class="chart">
+  	  <div style="width: 40px;">4</div>
+  	  <div style="width: 80px;">8</div>
+  	  <div style="width: 150px;">15</div>
+  	  <div style="width: 160px;">16</div>
+  	  <div style="width: 230px;">23</div>
+  	  <div style="width: 420px;">42</div>
+	  </div>
+	
+  <br>
+	<hr>
+	
+  <h1> Automatic Chart </h1>
+	<!-- >>>>> SCRIPTS <<<<< -->
+    <script type="text/javascript" src="d3_test1_bar-chart.js"></script>
+  
+  <!-- >>>>> MANUAL SVG CHART <<<<< -->
+  <br>
+  <hr>
+  
+  <h1> SVG Manual Chart </h1>
+
+  <svg class="chart" width="420" height="120">
+    <g transform="translate(0,0)">
+      <rect width="40" height="19"></rect>
+      <text x="37" y="9.5" dy=".35em">4</text>
+    </g>
+    <g transform="translate(0,20)">
+      <rect width="80" height="19"></rect>
+      <text x="77" y="9.5" dy=".35em">8</text>
+    </g>
+    <g transform="translate(0,40)">
+      <rect width="150" height="19"></rect>
+      <text x="147" y="9.5" dy=".35em">15</text>
+    </g>
+    <g transform="translate(0,60)">
+      <rect width="160" height="19"></rect>
+      <text x="157" y="9.5" dy=".35em">16</text>
+    </g>
+    <g transform="translate(0,80)">
+      <rect width="230" height="19"></rect>
+      <text x="227" y="9.5" dy=".35em">23</text>
+    </g>
+  </svg>
+
+<!-- >>>>> AUTOMATIC SVG CHART <<<<< -->
+  <br>
+  <hr>
+  
+  <h1> SVG Automatic Chart </h1>  
+  <svg class="chart1"></svg>
+  <script type="text/javascript" src="d3_test2_bar-chart.js"></script>
+
+  </body>
+  <!-- >>>>> BODY END <<<<< -->
+
+</html>

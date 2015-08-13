@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 2px black solid;
+            font: 12px sans-serif;
+        }
+
+        td, th {
+            border: 1px black solid;
+            padding: 5px;
+        }
+
+        th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.min.js?v=3.2.8"></script>
+<script type="text/javascript"charset="utf-8">
+    function tabulate(data, columns) {
+        var table = d3.select("body").append("table"),
+                thead = table.append("thead"),
+                tbody = table.append("tbody");
+
+        // Append the header row
+        thead.append("tr")
+                .selectAll("th")
+                .data(columns)
+                .enter()
+                .append("th")
+                .text(function(column) {
+                    return column;
+                });
+
+        // Create a row for each object in the data
+        var rows = tbody.selectAll("tr")
+                .data(data)
+                .enter()
+                .append("tr");
+
+        // Create a cell in each row for each column
+        var cells = rows.selectAll("td")
+                .data(function(row) {
+                    return columns.map(function(column) {
+                        return {
+                            column: column,
+                            value: row[column]
+                        };
+                    });
+                })
+                .enter()
+                .append("td")
+                .text(function(d) { return d.value; });
+
+        return table;
+    }
+
+    // Create some people
+
+    //d3.json("https://health.data.ny.gov/resource/54ci-sdfi.json?$limit=50000&$select=county_name,event_count,indicator", function(error, data) {
+    d3.json("https://health.data.ny.gov/resource/54ci-sdfi.json?$limit=50000", function(error, data) {
+
+       // d3.json("https://health.data.ny.gov/resource/54ci-sdfi.json", function(error, data) {
+   // d3.json("https://health.data.ny.gov/resource/54ci-sdfi.json?$select=*&$where=percent_rate=%27639%27and%20event_count=%273836%27", function(error, data) {
+    //d3.csv("https://health.data.ny.gov/resource/54ci-sdfi.csv?$select=percent_rate,event_count,data_source", function(error, data) {
+        tabulate(data, ["county_name", "event_count","indicator"]);
+    });
+    // Render the table
+    var peopleTable = tabulate(people, ["county_name", "event_count","indicator"]);
+
+    // Uppercase the column headers
+    peopleTable.selectAll("thead th")
+            .text(function(column) {
+                return column.charAt(0).toUpperCase() + column.substr(1);
+            });
+
+ /*   // Sort by event_count
+    peopleTable.selectAll("tbody tr")
+            .sort(function(a, b) {
+                //return d3.ascending(a.event_count, b.county_name);
+                //return d3.ascending(a.event_count);
+            });*/
+
+    peopleTable.selectAll("tbody tr").sort(function(a,b){
+        d3.ascending(parseFloat(a[1]),parseFloat(b[1])) ||
+        d3.ascending(a[0],b[0])
+    });
+
+
+
+
+</script>
+</body>
+</html>

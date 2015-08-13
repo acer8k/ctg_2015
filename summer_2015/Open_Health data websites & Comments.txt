@@ -1,0 +1,32 @@
+
+https://www.health.ny.gov/health_care/managed_care/reports/eqarr/2014/about.htm
+
+https://www.health.ny.gov/health_care/managed_care/reports/eqarr/2014/statewide/commercial/managing_preventive_care.htm (Natalie's base table)
+
+https://www.health.ny.gov/health_care/managed_care/reports/eqarr/2014/plan_profiles.htm (eQARR Table)
+
+http://www.health.ny.gov/health_care/managed_care/reports/ (various managed care reports)
+
+http://www.ncqa.org/ (source of nationwide qa stats)
+
+
+https://health.data.ny.gov/
+
+https://health.data.ny.gov/Health/Quality-Assurance-Reporting-Requirements-Beginning/vbkk-tipq (health.data.ny.gov socrata)
+
+https://health.data.ny.gov/developers/docs/quality-assurance-reporting-requirements-beginning-2008 (API View)
+
+http://dev.socrata.com/foundry/#/health.data.ny.gov/jb5s-mei3 (info on health data ny socrata dataset)
+
+
+http://phastdata.org/WAdashboard (Tableau sample)
+
+https://github.com/allejo/PhpSoda (PHP Soda language)
+
+http://dev.socrata.com/consumers/cookbooks/querying-block-ranges.html (Socrata Developers Cookbook)
+
+
+
+NATALIE'S EXPECTATION
+- "Public reporting made easier": connect to the health data ny eQARR dataset, select plan, select area, select year, and display table.
+- No database; from the api to the web page; no calculations; 3 dropdowns with sub selections and query/results

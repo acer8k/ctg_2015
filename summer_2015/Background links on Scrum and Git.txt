@@ -1,0 +1,42 @@
+
+Here are some background links on Scrum and Git
+ 
+Links on Scrum:
+•	http://www.mountaingoatsoftware.com
+•	http://www.versionone.com/agile-101/what-is-scrum/
+•	http://scrummethodology.com/
+•	http://www.scrumcrazy.com
+•	https://www.scrum.org/resources/what-is-scrum
+•	https://trello.com/ 
+
+Links on git:
+*	http://git-scm.com/  
+*	https://www.atlassian.com/git/tutorials/ 
+*	http://www.vogella.com/tutorials/Git/article.html 
+*	http://www.tutorialspoint.com/git/git_basic_concepts.htm 
+*	https://try.github.io/levels/1/challenges/1 
+*	http://wiki.ctg.albany.edu/mediawiki/index.php/Using_GIT
+
+Links on d3
+*	https://www.dashingd3js.com/ (good page-by-page, step-by-step tutorial)
+*	http://d3js.org/ (primary d3 website)
+*	https://github.com/mbostock/d3/wiki/Gallery (primary d3 repository)
+	http://bost.ocks.org/mike/ (website of Mike Bostock, the creator of d3)
+*	http://chimera.labs.oreilly.com/books/1230000000345/index.html ("Interactive data Visualization for the Web" book online, Scott Murray)
+*	http://alignedleft.com/tutorials/d3 (tutorials that accompany Scott Murray's book listed above)
+*	http://shop.oreilly.com/product/110000632.do?cmp=af-strata-books-videos-product-na_affiliate_murray_video_introduction_to_d3js_cj_11790507_6754088 (video for Scott Murray's book)
+* 	https://square.github.io/intro-to-d3/ (quickie online tutorial on d3)
+*	https://www.youtube.com/user/d3Vienno (series of YouTube videos on d3)
+*	https://egghead.io/technologies/d3 (some free video tutorials, but most require a paid subscription)
+*	http://nrecursions.blogspot.in/2014/11/getting-your-head-around-d3js.html  (simple one-page intro to d3)
+*	http://nrecursions.blogspot.in/2014/12/getting-your-head-around-d3js-part2.html (continuation of simple one-page intro to d3)
+*	http://pothibo.com/2013/09/d3-js-how-to-handle-dynamic-json-data/ (Example of d3 pulling dynamic json data)
+*	http://codepen.io/subirrastogi/pen/JdEbn (CodePen example of json example above, this one's better)
+*	http://www.d3noob.org/2013/02/add-html-table-to-your-d3js-graph.html (tutorial on tabulate function)
+*	https://gist.github.com/jfreels/6734025 (sample code on tabulate function)
+*	http://d3plus.org/ (d3plus library for d3)
+* 	http://stackoverflow.com/questions/19317115/convert-flat-json-file-to-hierarchical-json-data-like-flare-json-d3-example-fil 
+*	http://www.d3noob.org/2012/12/getting-data.html
+*	http://learnjsdata.com/read_data.html
+
+\

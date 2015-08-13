@@ -1,0 +1,70 @@
+body { font: 15px Arial;}
+
+path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+td, th {
+    padding: 4px 7px;
+    border: 3px black solid;
+    font-family:inherit;
+    font-size: 12px;
+}
+thead th{
+    font-size: 14px;
+}
+tr:hover { /* mouseover */
+    background-color: deepskyblue;
+}
+
+/* BAR CHART */
+
+
+.bar {
+    fill: green;
+}
+
+.bar:hover {
+    fill: deepskyblue;
+}
+
+.title {
+    font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.axis {
+    font: 10px "Segoe UI";
+}
+
+.axis path,
+.axis line {
+    fill: white;
+    stroke: black;
+    shape-rendering: auto;
+   }
+
+.x.axis path {
+    display: none;
+    fill: white;
+   }
+
+
+p.ex {
+    color: black;
+    font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: justify;
+}
+
+.sBoxes {
+    margin: 0 5px 5px 0;
+}

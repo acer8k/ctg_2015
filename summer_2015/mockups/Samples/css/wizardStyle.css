@@ -1,0 +1,47 @@
+.nav-tabs>li.active
+{
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  border-top: 3px solid #2ba6cb;
+}
+.nav-tabs>li 
+{
+  margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+.nav>li 
+{
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  color: #337ab7;
+}
+#DynamicForm 
+{
+  position: relative;
+}
+
+form>div 
+{
+  width: 100%;
+  display: none;
+  position: absolute;
+  background-color: transparent;
+}
+
+form>div>h3 
+{
+  margin-bottom: 20px;
+}
+
+form>div.active{
+  display: block;
+}
+
+.pastSelections {
+  color: #555555;
+}

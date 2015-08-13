@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mockup Samples</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/sample1.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center text-uppercase">
+				<h1>Regular Forms</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div id="StaticFormDiv" class="col-md-6">
+				<h2>Checkboxes and multiselection boxes</h2>
+				<br>
+				<form id="StaticForm">
+					<h3>Choose a type(s)</h3>
+					<p>
+						<input type="checkbox" id="cType1" name="type" value="Commercial HMO"> 
+						<label for="cType1">Commercial HMO</label>
+						<input type="checkbox" id="cType2" name="type" value="Commercial PPO"> 
+						<label for="cType2">Commercial PPO </label>
+						<input type="checkbox" id="cType3" name="type" value="Medicaid_Managed-Care"> 
+						<label for="cType3">Medicaid</label> 
+					</p>
+					<h3>Choose a domain(s)</h3>
+					<p>
+						<input type="checkbox" id="cDomain1" name="domain" value="Adult_Health"> 
+						<label for="cDomain1">Adult Health</label>
+						<input type="checkbox" id="cDomain2" name="domain" value="Behavioral_Health"> 
+						<label for="cDomain2">Behavioral Health </label>
+						<input type="checkbox" id="cDomain3" name="domain" value="Child_and_Adolescent-Health"> 
+						<label for="cDomain3">Child and Adolescent Health</label> 
+					</p>
+					<p>
+						<input type="checkbox" id="cDomain4" name="domain" value="Provider_Network"> 
+						<label for="cDomain4">Provider Network</label>
+						<input type="checkbox" id="cDomain5" name="domain" value="Satisfaction_with_Care"> 
+						<label for="cDomain5">Satisfaction with Care</label>
+						<input type="checkbox" id="cDomain6" name="domain" value="Women's_Health"> 
+						<label for="cDomain6">Women's Health</label> 
+					</p>
+					<h3>Choose a plan(s)*</h3>
+					<p>
+						<select id='sbPlan1' multiple></select>
+					</p>
+					<h3>Choose a service(s)*</h3>
+					<p>
+						<select id='sbService1' multiple></select>
+					</p>
+					<small>*: Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</small>
+					<br>
+					<button type="button" id="sButton" class="clear">Clear</button>
+					<input type="submit" class="submit" value="Generate JSON">
+					<input type="submit" class="submit" value="Generate Excel">
+				</form>
+			</div>
+			<div id="DinamicFormDiv" class="col-md-6">
+				<h2>Dynamically created selection boxes</h2>
+				<br>
+				<form id="DynamicForm">
+					<h3>Choose a type(s)*</h3>
+					<p id="pType"></p>
+
+					<h3>Choose a domain(s)*</h3>
+					<p id="pDomain"></p>
+
+					<h3>Choose a plan(s)*</h3>
+					<p id="pPlan"></p>
+
+					<h3>Choose a service(s)*</h3>
+					<p id="pService"></p>
+					<p><small>*: Empty fields will be considered as "all checked".</small></p>
+					<br>
+					<button type="button" id="dButton" class="clear">Clear</button>
+					<input type="submit" class="submit" value="Generate JSON">
+					<input type="submit" class="submit" value="Generate Excel">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
