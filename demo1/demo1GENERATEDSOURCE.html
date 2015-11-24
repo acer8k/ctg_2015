@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type='text/javascript' src='script.js'></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>-->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/d3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="../js/d3.tip.v0.6.3.js"></script>
+
+	
+    <style>
+
+    body {
+      font: 12px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .bar {
+      fill: steelblue;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    .measures text {
+      fill: white;
+      font: 10px sans-serif;
+      text-anchor: end;
+    }
+
+    .legend text{
+      font-weight: bold;
+    }
+
+    .d3-tip {
+      line-height: 1;
+      font-weight: bold;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-radius: 2px;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color: rgba(0, 0, 0, 0.8);
+      content: "\25BC";
+      position: absolute;
+      text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+      margin: -1px 0 0 0;
+      top: 100%;
+      left: 0;
+    }
+
+    </style>
+</head>
+<body>
+    <p class="selections">
+        <b><label style="margin-left:40px" for="sbPayer0">Payer: </label></b><select class="sBoxes" id="sbPayer0">
+		<option value="blank" selected=""></option><option value="Commercial_HMO">Commercial HMO</option><option value="Commercial_PPO">Commercial PPO</option></select><b><label style="margin-left:40px" for="sbMesureDescription0">Sub Domain: </label></b><select class="sBoxes" id="sbMesureDescription0"><option value="blank" selected=""></option><option value="Access_to_Primary_Care">Access to Primary Care</option><option value="Behavioral_Health">Behavioral Health</option><option value="Caring_for_Children_and_Adolescents_with_Illnesses">Caring for Children and Adolescents with Illnesses</option><option value="Child_Preventive_Care">Child Preventive Care</option><option value="Managing_Acute_Illness_for_Adults">Managing Acute Illness for Adults</option><option value="Managing_Cardiovascular_Conditions_for_Adults">Managing Cardiovascular Conditions for Adults</option><option value="Managing_Diabetes_Outcomes_for_Adults">Managing Diabetes Outcomes for Adults</option><option value="Managing_Medications_for_Adults">Managing Medications for Adults</option><option value="Managing_Preventive_Care_for_Adults">Managing Preventive Care for Adults</option><option value="Managing_Respiratory_Conditions_for_Adults">Managing Respiratory Conditions for Adults</option><option value="Monitoring_Diabetes_for_Adults">Monitoring Diabetes for Adults</option><option value="Preventive_Care_for_Women">Preventive Care for Women</option><option value="Preventive_Counseling_for_Children_and_Adolescents">Preventive Counseling for Children and Adolescents</option><option value="Provider_Network">Provider Network</option><option value="Satisfaction_with_Access_to_Care_and_Health_Plan_for_Adults">Satisfaction with Access to Care and Health Plan for Adults</option><option value="Satisfaction_with_Experience_of_Care_for_Adults">Satisfaction with Experience of Care for Adults</option><option value="Use_of_Services">Use of Services</option></select><b><label for="sbYear0" style="margin-left:40px">Year: </label></b><select class="sBoxes" id="sbYear0"><option value="blank" selected=""></option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option>
+		</select>
+		<button type="button" class="draw" style="margin-left:40px">Submit</button>
+    </p>
+<div style="text-align:right;margin-top:-30px;">
+<a href="../portal.html" style="background-color:#EEEEEE;color:black;padding:6px 24px;text-decoration:none;">&lt; Main Menu</a></div>
+
+<h1 style="margin-left:40px" class="ex">Commercial HMO - Managing Preventive Care for Adults - 2013</h1>
+
+<svg width="1260" height="575">
+<g transform="translate(40,20)">
+
+	<g class="x axis" transform="translate(0,505)">
+
+		<g class="tick" transform="translate(130,0)" style="opacity: 1;">
+			<line y2="6" x2="0"></line>
+			<text dy=".71em" y="9" x="0" style="text-anchor: middle;">
+				<tspan x="0" y="9" dy="0.71em">Colon Cancer Screening</tspan>
+			</text>
+		</g>
+
+		<g class="tick" transform="translate(365,0)" style="opacity: 1;">
+			<line y2="6" x2="0"></line>
+			<text dy=".71em" y="9" x="0" style="text-anchor: middle;">
+				<tspan x="0" y="9" dy="0.71em">Discussion of Aspirin Risks and</tspan>
+				<tspan x="0" y="9" dy="1.91em">Benefits</tspan>
+			</text>
+		</g>
+	
+		<g class="tick" transform="translate(600,0)" style="opacity: 1;">
+			<line y2="6" x2="0"></line>
+			<text dy=".71em" y="9" x="0" style="text-anchor: middle;">
+				<tspan x="0" y="9" dy="0.71em">Adult BMI Assessment</tspan>
+			</text>
+		</g>
+	
+		<g class="tick" transform="translate(835,0)" style="opacity: 1;">
+			<line y2="6" x2="0"></line>
+			<text dy=".71em" y="9" x="0" style="text-anchor: middle;">
+				<tspan x="0" y="9" dy="0.71em">Aspirin Use</tspan>
+			</text>
+		</g>
+	
+		<g class="tick" transform="translate(1070,0)" style="opacity: 1;">
+			<line y2="6" x2="0"></line>
+			<text dy=".71em" y="9" x="0" style="text-anchor: middle;">
+				<tspan x="0" y="9" dy="0.71em">Flu Shot for Adults</tspan>
+			</text>
+		</g>
+
+		<path class="domain" d="M0,6V0H1200V6"></path>
+	</g>
+
+	<g class="y axis">
+		<g class="tick" transform="translate(0,505)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.0</text>
+		</g>
+		<g class="tick" transform="translate(0,450.239644328779)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">10</text>
+		</g>
+		<g class="tick" transform="translate(0,395.479288657558)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">20</text>
+		</g>
+		<g class="tick" transform="translate(0,340.718932986337)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">30</text>
+		</g>
+		<g class="tick" transform="translate(0,285.958577315116)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">40</text>
+		</g>
+		<g class="tick" transform="translate(0,231.19822164389507)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">50</text>
+		</g>
+		<g class="tick" transform="translate(0,176.43786597267405)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">60</text>
+		</g>
+		<g class="tick" transform="translate(0,121.67751030145305)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">70</text>
+		</g>
+		<g class="tick" transform="translate(0,66.91715463023205)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">80</text>
+		</g>
+		<g class="tick" transform="translate(0,12.156798959011052)" style="opacity: 1;">
+			<line x2="-6" y2="0"></line>
+			<text dy=".32em" x="-9" y="0" style="text-anchor: end;">90</text>
+		</g>
+		<path class="domain" d="M-6,0H0V505H-6"></path>
+		<text transform="rotate(-90)" y="6" dy=".71em" style="text-anchor: end;">Rate</text>
+	</g>
+	
+	<g class="g" transform="translate(24,0)">
+		<rect width="15" x="4" y="180.21633051398828" height="324.7836694860117" style="fill: rgb(70, 114, 166);"></rect>
+		<rect width="15" x="21" y="143.19833008024295" height="361.80166991975705" style="fill: rgb(168, 69, 67);"></rect>
+		<rect width="15" x="38" y="148.8934070700499" height="356.1065929299501" style="fill: rgb(136, 163, 78);"></rect>
+		<rect width="15" x="55" y="137.284211667751" height="367.71578833224896" style="fill: rgb(113, 89, 143);"></rect>
+		<rect width="15" x="72" y="90.57362828019946" height="414.42637171980056" style="fill: rgb(152, 186, 227);"></rect>
+		<rect width="15" x="89" y="141.44599869876382" height="363.5540013012362" style="fill: rgb(66, 152, 173);"></rect>
+		<rect width="15" x="106" y="145.8268271524615" height="359.17317284753847" style="fill: rgb(217, 128, 61);"></rect>
+		<rect width="15" x="123" y="177.47831273042723" height="327.5216872695728" style="fill: rgb(138, 207, 124);"></rect>
+		<rect width="15" x="140" y="210.00596399913252" height="294.9940360008675" style="fill: rgb(134, 155, 191);"></rect>
+		<rect width="15" x="157" y="151.905226631967" height="353.094773368033" style="fill: rgb(222, 162, 162);"></rect>
+		<rect width="15" x="174" y="293.4607460420733" height="211.5392539579267" style="fill: rgb(185, 204, 151);"></rect>
+		<rect width="15" x="191" y="155.84797224029492" height="349.1520277597051" style="fill: rgb(0, 0, 0);"></rect>
+		<text y="NaN" x="106" dy=".1em"></text>
+	</g>
+	
+	<g class="g" transform="translate(259,0)">
+		<rect width="15" x="4" y="256.27846454131424" height="248.72153545868576" style="fill: rgb(70, 114, 166);"></rect>
+		<rect width="15" x="21" y="273.4184558664064" height="231.58154413359358" style="fill: rgb(168, 69, 67);"></rect>
+		<rect width="15" x="38" y="216.90576881370637" height="288.09423118629365" style="fill: rgb(136, 163, 78);"></rect>
+		<rect width="15" x="55" y="212.85350249403598" height="292.146497505964" style="fill: rgb(113, 89, 143);"></rect>
+		<rect width="15" x="72" y="246.47636087616567" height="258.5236391238343" style="fill: rgb(152, 186, 227);"></rect>
+		<rect width="15" x="89" y="243.2454998915637" height="261.75450010843633" style="fill: rgb(66, 152, 173);"></rect>
+		<rect width="15" x="106" y="217.07004988072003" height="287.92995011927997" style="fill: rgb(217, 128, 61);"></rect>
+		<rect width="15" x="123" y="263.12350900021687" height="241.87649099978313" style="fill: rgb(138, 207, 124);"></rect>
+		<rect width="15" x="140" y="250.0905443504663" height="254.9094556495337" style="fill: rgb(134, 155, 191);"></rect>
+		<rect width="15" x="157" y="237.6599436130991" height="267.34005638690087" style="fill: rgb(222, 162, 162);"></rect>
+		<rect width="15" x="174" y="269.4757102580785" height="235.5242897419215" style="fill: rgb(185, 204, 151);"></rect>
+		<rect width="15" x="191" y="243.08121882454998" height="261.91878117545" style="fill: rgb(0, 0, 0);"></rect>
+		<text y="NaN" x="106" dy=".1em"></text>
+	</g>
+	
+	<g class="g" transform="translate(494,0)">
+		<rect width="15" x="4" y="29.680112773801785" height="475.3198872261982" style="fill: rgb(70, 114, 166);"></rect>
+		<rect width="15" x="21" y="36.19659509867708" height="468.8034049013229" style="fill: rgb(168, 69, 67);"></rect>
+		<rect width="15" x="38" y="44.08208631533288" height="460.9179136846671" style="fill: rgb(136, 163, 78);"></rect>
+		<rect width="15" x="55" y="13.361526783777904" height="491.6384732162221" style="fill: rgb(113, 89, 143);"></rect>
+		<rect width="15" x="72" y="0" height="505" style="fill: rgb(152, 186, 227);"></rect>
+		<rect width="15" x="89" y="56.23888527434393" height="448.76111472565606" style="fill: rgb(66, 152, 173);"></rect>
+		<rect width="15" x="106" y="170.63326827152457" height="334.36673172847543" style="fill: rgb(217, 128, 61);"></rect>
+		<rect width="15" x="123" y="179.23064411190632" height="325.7693558880937" style="fill: rgb(138, 207, 124);"></rect>
+		<rect width="15" x="140" y="84.22142702233789" height="420.7785729776621" style="fill: rgb(134, 155, 191);"></rect>
+		<rect width="15" x="157" y="57.334092387768365" height="447.66590761223165" style="fill: rgb(222, 162, 162);"></rect>
+		<rect width="15" x="174" y="159.2978746475819" height="345.7021253524181" style="fill: rgb(185, 204, 151);"></rect>
+		<rect width="15" x="191" y="78.08826718716115" height="426.91173281283886" style="fill: rgb(0, 0, 0);"></rect>
+		<text y="NaN" x="106" dy=".1em"></text>
+	</g>
+	
+	<g class="g" transform="translate(729,0)">
+		<rect width="15" x="4" y="208.58219475168073" height="296.41780524831927" style="fill: rgb(70, 114, 166);"></rect>
+		<rect width="15" x="21" y="320.67664281067016" height="184.32335718932984" style="fill: rgb(168, 69, 67);"></rect>
+		<rect width="15" x="38" y="218.87714161787028" height="286.1228583821297" style="fill: rgb(136, 163, 78);"></rect>
+		<rect width="15" x="55" y="226.43407070049884" height="278.56592929950114" style="fill: rgb(113, 89, 143);"></rect>
+		<rect width="15" x="72" y="253.15712426805464" height="251.84287573194536" style="fill: rgb(152, 186, 227);"></rect>
+		<rect width="15" x="89" y="255.73086098460206" height="249.26913901539794" style="fill: rgb(66, 152, 173);"></rect>
+		<rect width="15" x="106" y="283.33008024289745" height="221.66991975710255" style="fill: rgb(217, 128, 61);"></rect>
+		<rect width="15" x="123" y="278.12784645413143" height="226.87215354586857" style="fill: rgb(138, 207, 124);"></rect>
+		<rect width="15" x="140" y="285.958577315116" height="219.04142268488403" style="fill: rgb(134, 155, 191);"></rect>
+		<rect width="15" x="157" y="292.7488614183474" height="212.25113858165258" style="fill: rgb(222, 162, 162);"></rect>
+		<rect width="15" x="174" y="267.34005638690087" height="237.65994361309913" style="fill: rgb(185, 204, 151);"></rect>
+		<rect width="15" x="191" y="259.34504445890263" height="245.65495554109737" style="fill: rgb(0, 0, 0);"></rect>
+		<text y="NaN" x="106" dy=".1em"></text>
+	</g>
+	<g class="g" transform="translate(964,0)">
+		<rect width="15" x="4" y="226.92691390153982" height="278.0730860984602" style="fill: rgb(70, 114, 166);"></rect>
+		<rect width="15" x="21" y="288.6418347430059" height="216.35816525699408" style="fill: rgb(168, 69, 67);"></rect>
+		<rect width="15" x="38" y="205.18705270006507" height="299.81294729993493" style="fill: rgb(136, 163, 78);"></rect>
+		<rect width="15" x="55" y="209.40360008674907" height="295.59639991325093" style="fill: rgb(113, 89, 143);"></rect>
+		<rect width="15" x="72" y="203.87280416395575" height="301.1271958360443" style="fill: rgb(152, 186, 227);"></rect>
+		<rect width="15" x="89" y="232.07438733463454" height="272.92561266536546" style="fill: rgb(66, 152, 173);"></rect>
+		<rect width="15" x="106" y="241.21936673172848" height="263.7806332682715" style="fill: rgb(217, 128, 61);"></rect>
+		<rect width="15" x="123" y="294.7202342225114" height="210.2797657774886" style="fill: rgb(138, 207, 124);"></rect>
+		<rect width="15" x="140" y="247.73584905660377" height="257.2641509433962" style="fill: rgb(134, 155, 191);"></rect>
+		<rect width="15" x="157" y="214.60583387551503" height="290.39416612448497" style="fill: rgb(222, 162, 162);"></rect>
+		<rect width="15" x="174" y="272.76133159835183" height="232.23866840164817" style="fill: rgb(185, 204, 151);"></rect>
+		<rect width="15" x="191" y="238.42658859249622" height="266.5734114075038" style="fill: rgb(0, 0, 0);"></rect>
+		<text y="NaN" x="106" dy=".1em"></text>
+	</g>
+	
+	<g class="legend" transform="translate(0,0)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(70, 114, 166);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Univera Healthcare</text>
+	</g>
+	<g class="legend" transform="translate(0,17)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(168, 69, 67);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">HIP (EmblemHealth)</text>
+	</g>
+	<g class="legend" transform="translate(0,34)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(136, 163, 78);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Independent Health</text>
+	</g>
+	<g class="legend" transform="translate(0,51)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(113, 89, 143);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">MVP Health Care</text>
+	</g>
+	<g class="legend" transform="translate(0,68)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(152, 186, 227);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">CDPHP</text>
+	</g>
+	<g class="legend" transform="translate(0,85)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(66, 152, 173);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">HealthNow New York Inc.</text>
+	</g>
+	<g class="legend" transform="translate(0,102)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(217, 128, 61);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Aetna</text>
+	</g>
+	<g class="legend" transform="translate(0,119)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(138, 207, 124);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Oxford Health Plans of New York</text>
+	</g>
+	<g class="legend" transform="translate(0,136)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(134, 155, 191);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Empire BlueCross BlueShield HMO</text>
+	</g>
+	<g class="legend" transform="translate(0,153)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(222, 162, 162);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Excellus Blue Cross BlueShield</text>
+	</g>
+	<g class="legend" transform="translate(0,170)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(185, 204, 151);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Easy Choice Health Plan of NY</text>
+	</g>
+	
+	<g class="legend" transform="translate(0,187)">
+		<rect x="1182" width="18" height="18" style="fill: rgb(0, 0, 0);"></rect>
+		<text x="1176" y="9" dy=".35em" style="text-anchor: end;">Statewide Average</text>
+	</g>
+	
+</g>
+</svg>
+	
+<div class="d3-tip" style="position: absolute; opacity: 0;"></div>
+</body>
+</html>

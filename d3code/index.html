@@ -1,0 +1,161 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<title>NestExample</title>
+	<style type="text/css">
+		div{
+			text-align: center;
+			margin: 10px 0 10px 0;
+		}
+
+		div.col-md-6:first-of-type{
+			border-style: solid;
+			border-right-width: 1px;
+			border-top-width: 0px;
+			border-bottom-width: 0px;
+			border-left-width: 0px;
+		}
+		textarea {
+			width: 90%;
+		}
+
+		#example{
+			padding: 0 46px 0 46px;
+			text-align: left;
+			font-family: Consolas;
+			font-size: 12px;
+		}
+
+		#wrapper{
+			padding: 0 20px 0 20px;
+			text-align: left;
+			border-style: solid;
+			border-width: 1px; 
+			border-color: grey;
+			color: white;
+			background-color: #333333;
+		}
+
+		.comment-line
+		{
+			color: grey;
+		}
+
+		.parameter-word
+		{
+			color: #D2691E;
+		}
+		.value-word
+		{
+			color: #5A5097;
+		}
+		.function-name-word
+		{
+			color: #30D630;
+		}
+		.object-word
+		{
+			color: #48A5FF;
+		}
+
+		.reserved-word
+		{
+			color: #CC0066;
+		}
+
+		.string-word
+		{
+			color: #CC9900;
+		}
+
+		.tab
+		{
+			margin-left:20px;
+		}
+	</style>
+</head>
+
+<body>
+<div style="text-align:right;margin-bottom:-48px;"><a href="../portal.html" style="background-color:#EEEEEE;color:black;padding:6px 24px;text-decoration:none;">< Main Menu</a></div>
+<h1>Visualization Tips and Techniques</h1>
+	<div class="row">
+		<div class="col-md-6">
+			<textarea id="original" rows="20" cols="40"></textarea>
+		</div>
+		<div class="col-md-6">
+			<textarea id="nest" rows="20" cols="40"></textarea>
+		</div>
+	</div>
+	<div class="row">
+		<div id="example" class="col-md-12">
+			<div id="wrapper"></div>
+		</div>
+	</div>
+	
+	
+	
+	<script type="text/javascript">
+		//global variable that will hold the nested data.
+		var nested_data = [];
+		//The non-nested data has to get loaded first, then it is passed to function that organize it.
+		//When attempting to nest and show the whole dataset a problem occurred. Apparently the .stringify function couldn't handle the whole dataset and nothing is shown. But inspecting the nested_data variable on the console I could see the whole data there and it was properly organized. So it is probably possible that D3 will be able to handle the whole dataset, in case we need that. 
+		$.getJSON("https://health.data.ny.gov/resource/vbkk-tipq.json?$limit=50000&$select=*&$where=measurement_year='2013'and (measure_description='Colon Cancer Screening' or measure_description='Adult BMI Assessment'or measure_description='Flu Shot for Adults'or measure_description='Discussion of Aspirin Risks and Benefits'or measure_description='Aspirin Use')")
+		.done(function( data ) {
+			//data(variable) here contains all the values from the query, that is what gets passed as an argument to the nest function.
+			$("#original").html(JSON.stringify(data, null, 3));
+			nest(data);
+		});
+		
+
+		//After this function runs the nested_data variable now has the organized data.
+		//If you want to visualize the nested_data on the console, and how it is organized all you have to do is uncomment line 35 and open the file with the developer tools(USE Chrome!!, tip: press F12) and type is the variable name on the console. You will be able to click through the array of objects as it is nested.
+		function nest(data) {
+			//here the you choose which keys you will use to nest. The hierarchy is by what gets called first. So in this case Payer will be the higher hierarchy followed by domain and so forth.
+			//The last function determines what is the data(non-nested).
+			var nested_data = d3.nest()
+			    .key(function(d) {return d.measurement_year; })
+			    .key(function(d) {return d.payer; })
+				.key(function(d) {return d.plan_name; })
+			    .key(function(d) {return d.domain; })
+			    .key(function(d) {return d.sub_domain; })
+				.key(function(d) {return d.measure_description; })
+				.key(function(d) {return d.rate; })
+				.rollup(function(leaves) { return leaves.rate; })
+			    .entries(data);		
+
+			
+			//This changes the inner html of the textarea element.
+			//the .stringify function transforms the JSON data to a string.
+			$("#nest").html(JSON.stringify(nested_data, null, 3));
+		};
+
+		$("#wrapper").html(
+			'<span class="comment-line">//After this function runs the nested_data variable now has the organized data.</span>'
+			+'<br><span class="comment-line">//If you want to visualize the nested_data on the console, and how it is organized all you have to do is uncomment line 35 and open the file with the developer tools(USE Chrome!!, tip: press F12) and type is the variable name on the console. You will be able to click through the array of objects as it is nested.</span>'
+			+'<br><span class="object-word">function </span><span class="function-name-word">nest</span>(<span class="parameter-word">data</span>) { '
+			+'<br><p class="tab"><span class="comment-line">//here the you choose which keys you will use to nest. The hierarchy is by what gets called first. So in this case Payer will be the higher hierarchy followed by domain and so forth.'
+			+'<br>//The last function determines what is the data(non-nested).</span>'
+			+'<br>\t'+'<span class="object-word">var </span>nested_data <span class="reserved-word">=</span> d3.nest()'
+			+'<br>\t\t'+'<span class="tab">.key(<span class="object-word">function</span>(d) {<span class="reserved-word">return</span> d.measurement_year; })</span>'
+			+'<br>\t\t'+'<span class="tab">.key(<span class="object-word">function</span>(d) {<span class="reserved-word">return</span> d.payer; })</span>'
+			+'<br>\t\t'+'<span class="tab">.key(<span class="object-word">function</span>(d) {<span class="reserved-word">return</span> d.plan_name; })</span>'
+			+'<br>\t\t'+'<span class="tab">.key(<span class="object-word">function</span>(d) {<span class="reserved-word">return</span> d.domain; })</span>'
+			+'<br>\t\t'+'<span class="tab">.key(<span class="object-word">function</span>(d) {<span class="reserved-word">return</span> d.sub_domain; })</span>'
+			+'<br>\t\t'+'<span class="tab">.key(<span class="object-word">function</span>(d) {<span class="reserved-word">return</span> d.measure_description; })</span>'
+			+'<br>\t\t'+'<span class="tab">.key(<span class="object-word">function</span>(d) {<span class="reserved-word">return</span> d.rate; })</span>'
+			+'<br>\t\t'+'<span class="tab">.rollup(<span class="object-word">function</span>(leaves) {<span class="reserved-word"> return</span> leaves.rate; })</span>'
+			+'<br>\t\t'+'<span class="tab">.entries(<span class="parameter-word">data</span>);</span>'
+			+'<br>'
+			+'<br><span class="comment-line">//This changes the inner html of the textarea element.'
+			+'<br>//the .stringify function transforms the JSON data to a string.</span>'
+			+'<br>\t'+'<span class="reserved-word">$</span>(<span class="string-word">#nest"</span>).html(JSON.stringify(nested_data, <span class="value-word">null</span>, <span class="value-word">3</span>));'
+			+'</p>'+'};'
+			, null, 3);
+  	</script>
+</body>
+
+</html>

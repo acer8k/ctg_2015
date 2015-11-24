@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<html>
+<head>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type='text/javascript' src='script.js'></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>-->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/d3.min.js" charset="utf-8"></script>
+    <script type='text/javascript' src='script.js'></script>
+    <script src="../js/d3.tip.v0.6.3.js"></script>
+
+	
+    <style>
+
+    body {
+      font: 12px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .bar {
+      fill: steelblue;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    .measures text {
+      fill: white;
+      font: 10px sans-serif;
+      text-anchor: end;
+    }
+
+    .legend text{
+      font-weight: bold;
+    }
+
+    .d3-tip {
+      line-height: 1;
+      font-weight: bold;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-radius: 2px;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color: rgba(0, 0, 0, 0.8);
+      content: "\25BC";
+      position: absolute;
+      text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+      margin: -1px 0 0 0;
+      top: 100%;
+      left: 0;
+    }
+
+    </style>
+</head>
+<body>
+    <p class="selections">
+        <button type="button" class="draw" style="margin-left:40px">Submit</button>
+    </p>
+<div style="text-align:right;margin-top:-30px;"><a href="../portal.html" style="background-color:#EEEEEE;color:black;padding:6px 24px;text-decoration:none;">< Main Menu</a></div>
+</body>
+</html>
